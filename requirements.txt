@@ -1,0 +1,6 @@
+termcolor
+colorama
+asyncio
+pyperclip
+urllib3
+requests
