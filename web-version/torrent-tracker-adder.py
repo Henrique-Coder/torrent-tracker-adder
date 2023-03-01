@@ -1,12 +1,12 @@
-import streamlit as st
-from re import compile
-from urllib import parse
-from requests import get
-from webbrowser import open as webopen
-from pyperclip import copy
-from time import sleep
 from datetime import date
+from re import compile
+from time import sleep
+from urllib import parse
+from webbrowser import open as webopen
 
+import streamlit as st
+from clipboard import copy
+from requests import get
 
 today = date.today().strftime('%Y.%m.%d')
 
@@ -90,14 +90,16 @@ col1, col2, col3 = st.columns(3)
 
 if col1.button('**Copiar o link magnético para área de transferência**'):
     copy(updated_magnet_url)
+
     warn.info('・ O link magnético foi copiado para a área de transferência')
-    sleep(2)
+    sleep(1)
     warn.success(f'・ **{trackers_count}** rastreadores foram adicionados ao link magnético')
 
 if col2.button('**Abrir o link magnético em seu cliente torrent padrão**'):
-    webopen(updated_magnet_url)
+    webopen(updated_magnet_url, new=1)
+
     warn.info('・ O link magnético está sendo aberto em seu cliente torrent padrão')
-    sleep(2)
+    sleep(1)
     warn.success(f'・ **{trackers_count}** rastreadores foram adicionados ao link magnético')
 
 if col3.download_button(
@@ -107,7 +109,7 @@ if col3.download_button(
         mime='text/plain'
 ):
     warn.info('・ A lista de rastreadores está sendo enviada para você')
-    sleep(2)
+    sleep(1)
     warn.success(f'・ **{trackers_count}** rastreadores foram adicionados ao link magnético')
 
 st.markdown('---')
