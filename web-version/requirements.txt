@@ -1,0 +1,5 @@
+streamlit
+requests
+clipboard
+urllib3
+datetime
