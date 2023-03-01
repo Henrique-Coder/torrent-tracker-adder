@@ -5,7 +5,7 @@ from urllib import parse
 from webbrowser import open as webopen
 
 import streamlit as st
-from clipboard import copy
+from pyperclip import copy
 from requests import get
 
 today = date.today().strftime('%Y.%m.%d')
